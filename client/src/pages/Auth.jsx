@@ -81,6 +81,7 @@ const Auth = observer(() => {
             case 'phone':
                 setPhoneDirty(true)
                 break
+            default: break
         }
     }
 

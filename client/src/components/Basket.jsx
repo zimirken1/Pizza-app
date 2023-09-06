@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from 'react'
 import {observer} from 'mobx-react-lite'
 import BasketItem from './BasketItem'
 import {Context} from "../index";
-import {Button, Container} from "react-bootstrap";
+import {Button} from "react-bootstrap";
 import {createOrder} from "../http/orderAPI";
 import "../styles/Basket.css"
 
