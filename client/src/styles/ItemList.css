@@ -1,0 +1,7 @@
+.item-list-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 60vw;
+}
