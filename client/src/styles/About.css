@@ -2,42 +2,71 @@
     display: flex;
     flex-direction: column;
     width: 100vw;
-    height: 83vh;
+    height: 640px;
     background: #2E2E2E;
 }
 
 .offer-section__image {
     background-color: black;
     background-position: 5%;
-    height: 80vh;
+    height: 607px;
     width: 100vw;
     background-size: cover;
     background-image: url("https://s3-alpha-sig.figma.com/img/d099/43ff/8f2f63b52c0360085b7259ab84a3d931?Expires=1694995200&Signature=YqB8HikO3l2UKrsHhYkd45K7aWMi45L~L6YPVdwWfR2wprUYXO3k03XRH53xYNW8nywEKZ0DnAPMJmDXL2SwbCOPw2YFu3LBUyT1q0NyI26d-qm71IxZuaHvhfm1lD9UR7Q~CXTvtpSZm5Ymew2XoSSXW-72vnH7Rw~Pqw0H7ygsjefJHqViVPUiaznEu2A~zF7ajNDVsEg0rzqgSU1N0qvuZmzGjzF1p0l96elFPEfzmalG3pI3vlim0NVyv9dU-Og0h3p2MiZ1Ezbwyfb7H3WgcrfrdSvziDXZ5vGaNTZ36ejbINcSUgpH9TaaLCO4Is8w4NmkqB1iFsZ17XvPcg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4");
 }
 
-.info-section {
+.history-section {
+    background: #EFEFEF;
     display: flex;
     flex-direction: column;
-    height: 84vh;
+    height: 720px;
     width: 100vw;
 }
 
-.info-section__title {
-    height: 4vh;
-    width: 24vw;
+.history-article {
     display: flex;
-    flex-direction: row;
-    margin: 0 auto;
-    background: #2E2E2E;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.title__text {
-    margin: -20px auto;
-    color: #FFF;
+.title {
+    margin: 20px;
+    color: #2E2E2E;
     text-align: center;
     font-family: Bebas Neue, serif;
-    font-size: 2.5em;
+    font-size: 64px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+
+.img {
+    background-size: cover;
+    height: 407px;
+    width: 586px;
+    background-position: bottom;
+    background-image: url('https://s3-alpha-sig.figma.com/img/3410/dda9/8fe881912d966c107d6cf93069137c7c?Expires=1694995200&Signature=ZBUNm83IB3dcP9yLarCiOoliIO1709O5iFnr~sjf2bMWZ~iIuPMoaCCPj-6kBQj3JBe7nj8IcwUx1A0znNmPJ-fDT4HYHFOf5wftBOwz-oNFUg6tSRxcSjZ9IEfFc8uIj5n~VvcmFOGmtx0DnW0dRZZpp6I8ApH2cIUXbjtBlcpb6CuSefWBYhpbSgsfoZEh5qg73x0q25xqwFwa7n12XYymil-tsitt2mpILBR5e97ifn0DyTrKyGkUA7fjIrQOCHreqAQr9RnmuUTVjMgJFXqaETZuYjZni8leSZipsZQLqkXl~I40v7mDF30-6gNQwFP0kEBkeAxlZ3953y619Q__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');
+}
+
+.text {
+    text-align: justify;
+    margin: 20px;
+    height: 100px;
+    width: 487px;
+    font-family: Roboto, serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 1.3125rem */
+    letter-spacing: 0.04688rem;
+    position: relative;
+    color: darkslategrey;
+    text-decoration: none;
+}
+
+.footer {
+    width: 100vw;
+    height: 200px;
+    background-color: #2E2E2E;
 }
