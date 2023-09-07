@@ -4,7 +4,9 @@ import {Button, Container, Image, Nav, Navbar} from "react-bootstrap";
 import {NavLink, useNavigate} from "react-router-dom";
 import {ADMIN_ROUTE, LOGIN_ROUTE, PIZZA_ROUTE, PROFILE_ROUTE} from "../utils/consts";
 import {observer} from "mobx-react-lite";
-import myImage from '../logo.png';
+import './NavBar.css'
+import {FiLogOut, FiUser} from "react-icons/fi";
+import {MdOutlineAdminPanelSettings} from "react-icons/md";
 
 const NavBar = observer(() => {
     const {user} = useContext(Context)
@@ -16,58 +18,57 @@ const NavBar = observer(() => {
         user.setIsAdmin(false)
     }
     return (
-        <Navbar bg="dark" variant="dark">
-            <Container>
-                <NavLink style={{color: "white"}} to={PIZZA_ROUTE}>
-                    <Image
-                        src={myImage}
-                        height={130}
-                        width={240}
-                    />
+        <header className={"navbar"}>
+            <NavLink to={'/about'} className={"navbar__logo"}>
+                PIZZERIA
+            </NavLink>
+            <div className={"navbar-links"}>
+                <NavLink to={'/about'} className={"navbar-links__link"}>
+                    Главная
                 </NavLink>
-                {/*{user.isAdmin &&
-                    <Nav className="ml-auto" style={{color: "white"}}>
-                        <Button
-                            variant={"outline-light"}
+                <NavLink to={'/'} className={"navbar-links__link"}>
+                    Меню
+                </NavLink>
+                <NavLink to={'/'} className={"navbar-links__link"}>
+                    О продукте
+                </NavLink>
+                <NavLink to={'/'} className={"navbar-links__link"}>
+                    Контакты
+                </NavLink>
+            </div>
+
+            {user.isAuth ?
+                <div className={"navbar-btns"}>
+                    {user.isAdmin &&
+                        <div
+                            className={"navbar-btn__text"}
                             onClick={() => history(ADMIN_ROUTE)}
                         >
-                            Админ-панель
-                        </Button>
-                    </Nav>
-                }*/}
-                {user.isAuth ?
-                    <Nav className="ml-auto" style={{color: "white"}}>
-                        {user.isAdmin &&
-                            <Button
-                                variant={"outline-light"}
-                                className={"mx-lg-2"}
-                                onClick={() => history(ADMIN_ROUTE)}
-                            >
-                                Админ-панель
-                            </Button>
-                        }
-                        <Button
-                            onClick={() => history(PROFILE_ROUTE + '/' + user._id)}
-                            variant={"outline-light"}
-                            className={"mx-lg-2"}
-                        >
-                            Личный кабинет
-                        </Button>
-                        <Button
-                            variant={"outline-light"}
-                            onClick={() => logOut()}
-                            className={"mx-lg-2"}
-                        >
-                            Выйти
-                        </Button>
-                    </Nav>
-                    :
-                    <Nav className="ml-auto" style={{color: "white"}}>
-                        <Button variant={"outline-light"} onClick={() => history(LOGIN_ROUTE)}>Авторизация</Button>
-                    </Nav>
-                }
-            </Container>
-        </Navbar>
+                            <MdOutlineAdminPanelSettings size={25}/>
+                        </div>
+                    }
+                    <div
+                        onClick={() => history(PROFILE_ROUTE + '/' + user._id)}
+                        className={"navbar-btn__text"}
+                    >
+                        <FiUser size={25}/>
+                    </div>
+                    <div
+                        onClick={() => {logOut(); history('/about');}}
+                        className={"navbar-btn__text"}
+                    >
+                        <FiLogOut size={25}/>
+                    </div>
+                </div>
+                :
+                <div className={"navbar-btn"}>
+                    <NavLink to={'/login'} className={"navbar-btn__text"}>
+                        Войти
+                    </NavLink>
+                </div>
+            }
+
+        </header>
     );
 });
 
