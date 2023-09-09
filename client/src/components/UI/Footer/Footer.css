@@ -1,0 +1,45 @@
+.footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100vw;
+    height: 150px;
+    background-color: #2E2E2E;
+}
+
+.footer__logo-size_medium {
+    color: white;
+    position: relative;
+    font-family: Montserrat, serif;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: 0.0625rem;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.footer__info {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-family: Roboto, serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 1.3125rem */
+    letter-spacing: 0.04688rem;
+    position: relative;
+    text-decoration: none;
+}
+
+.phone_number {
+    font-size: 1.5rem;
+}
+
+.email {
+    font-size: 1.7rem;
+}

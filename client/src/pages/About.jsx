@@ -6,6 +6,10 @@ const About = () => {
         <>
             <div className={"offer-section"}>
                 <div className={"offer-section__image"}></div>
+                <div className={"logo"}>
+                    <div className={"logo__image"}></div>
+                    <div className={"logo__text"}>PIZZERIA</div>
+                </div>
             </div>
             <div className={"history-section"}>
                 <div className={"history-article"}>
@@ -20,9 +24,6 @@ const About = () => {
                     </div>
                 </div>
             </div>
-            <footer className={"footer"}>
-
-            </footer>
         </>
     );
 };

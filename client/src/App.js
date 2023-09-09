@@ -1,12 +1,13 @@
 import React, {useContext, useEffect, useState} from "react";
 import {BrowserRouter} from "react-router-dom";
 import AppRouter from "./components/AppRouter";
-import Navbar from "./components/NavBar";
+import Navbar from "./components/UI/NavBar/NavBar";
 import {observer} from "mobx-react-lite";
 import {Context} from "./index";
 import {check} from "./http/userAPI";
 import {Spinner} from "react-bootstrap";
 import "./styles/App.css"
+import Footer from "./components/UI/Footer/Footer";
 
 const App = observer(() => {
     const {user} = useContext(Context)
@@ -30,6 +31,7 @@ const App = observer(() => {
         <BrowserRouter>
             <Navbar/>
             <AppRouter/>
+            <Footer/>
         </BrowserRouter>
     );
 });
