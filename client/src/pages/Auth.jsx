@@ -5,6 +5,8 @@ import {LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE} from "../utils/consts";
 import {login, registration} from "../http/userAPI";
 import {observer} from "mobx-react-lite";
 import {Context} from "../index";
+import "../styles/Auth.css"
+import {FiLock, FiSmile} from "react-icons/fi";
 
 const Auth = observer(() => {
     const history = useNavigate()
@@ -81,7 +83,8 @@ const Auth = observer(() => {
             case 'phone':
                 setPhoneDirty(true)
                 break
-            default: break
+            default:
+                break
         }
     }
 
@@ -104,145 +107,114 @@ const Auth = observer(() => {
             alert(e.response.data.message)
         }
     }
-    return (// <Container
-        //     className={"d-flex justify-content-center align-items-center"}
-        //     style={{height: window.innerHeight - 54}}
-        // >
-        //     <Card style={{width: 600}} className={"p-5"}>
-        //         <h2 className={"m-auto"}>{isLogin ? "Авторизация" : "Регистрация"}</h2>
-        //         <Form className={"d-flex flex-column"}>
-        //             <Form.Control
-        //                 className={"mt-3"}
-        //                 placeholder={"Введите ваш login..."}
-        //                 value={username}
-        //                 onChange={e => setUsername(e.target.value)}
-        //             />
-        //             <Form.Control
-        //                 className={"mt-3"}
-        //                 placeholder={"Введите пароль..."}
-        //                 value={password}
-        //                 onChange={e => setPassword(e.target.value)}
-        //                 type={"password"}
-        //             />
-        //             <Row className={"d-flex justify-content-between mt-3 pl-3 pr-3"}>
-        //                 {isLogin ?
-        //                     <div>
-        //                         Нет аккаунта? <NavLink to={REGISTRATION_ROUTE}>Зарегистрируйся!</NavLink>
-        //                     </div>
-        //                     :
-        //                     <div>
-        //                         Есть аккаунт? <NavLink to={LOGIN_ROUTE}>Войдите!</NavLink>
-        //                     </div>
-        //                 }
-        //                 <Button
-        //                     variant={"outline-success"}
-        //                     onClick={click}
-        //                 >
-        //                     {isLogin ? 'Войти' : 'Регистрация'}
-        //                 </Button>
-        //             </Row>
-        //         </Form>
-        //     </Card>
-        // </Container>
-        <Container
-            className={"d-flex justify-content-center align-items-center"}
+
+    return (
+        <div
+            className={"auth-section"}
         >
-            {isLogin ? <Card
-                style={{width: 600}} className={"p-5 mt-5"}
-            >
-                <h2 className={"m-auto"}>Авторизация</h2>
-                <Form className={"d-flex flex-column"}>
-                    <Form.Control
-                        className={"mt-3"}
-                        placeholder={"Введите логин"}
-                        value={username}
-                        onChange={e => setUsername(e.target.value)}
-                    />
-                    <Form.Control
-                        className={"mt-3"}
-                        placeholder={"Введите пароль"}
-                        value={password}
-                        onChange={e => setPassword(e.target.value)}
-                        type={"password"}
-                    />
-                    <Row className={"d-flex justify-content-between mt-3 pl-3 pr-3"}>
-                        {isLogin ? <div>
-                            Нет аккаунта? <NavLink to={REGISTRATION_ROUTE}>Зарегистрируйся!</NavLink>
-                        </div> : <div>
-                            Есть аккаунт? <NavLink to={LOGIN_ROUTE}>Войдите!</NavLink>
-                        </div>}
-                        <Button
-                            variant={"outline-success"}
-                            onClick={click}
-                        >
-                            Войти
-                        </Button>
-                    </Row>
-                </Form>
-            </Card> : <Card
-                style={{width: 600}} className={"p-5 mt-5"}
-            >
-                <h2 className={"m-auto"}>Регистрация</h2>
-                <Form className={"d-flex flex-column"}>
-                    {(usernameDirty && usernameError) && <div style={{color: "red"}}>{usernameError}</div>}
-                    <Form.Control
-                        onBlur={e => blurHandler(e)}
-                        name={'username'}
-                        required
-                        className={"mt-3"}
-                        placeholder={"Введите логин"}
-                        value={username}
-                        onChange={e => usernameHandler(e)}
-                    />
-                    {(passwordDirty && passwordError) && <div style={{color: "red"}}>{passwordError}</div>}
-                    <Form.Control
-                        onBlur={e => blurHandler(e)}
-                        name={'password'}
-                        required
-                        className={"mt-3"}
-                        placeholder={"Введите пароль"}
-                        value={password}
-                        onChange={e => passwordHandler(e)}
-                        type={"password"}
-                    />
-                    {(addressDirty && addressError) && <div style={{color: "red"}}>{addressError}</div>}
-                    <Form.Control
-                        onBlur={e => blurHandler(e)}
-                        name={'address'}
-                        required
-                        className={"mt-3"}
-                        placeholder={"Введите адрес"}
-                        value={address}
-                        onChange={e => addressHandler(e)}
-                    />
-                    {(phoneDirty && phoneError) && <div style={{color: "red"}}>{phoneError}</div>}
-                    <Form.Control
-                        onBlur={e => blurHandler(e)}
-                        name={'phone'}
-                        className={"mt-3"}
-                        type="tel"
-                        placeholder="+375***********"
-                        required
-                        value={phone}
-                        onChange={e => phoneHandler(e)}
-                    />
-                    <Row className={"d-flex justify-content-between mt-3 pl-3 pr-3"}>
-                        {isLogin ? <div>
-                            Нет аккаунта? <NavLink to={REGISTRATION_ROUTE}>Зарегистрируйся!</NavLink>
-                        </div> : <div>
-                            Есть аккаунт? <NavLink to={LOGIN_ROUTE}>Войдите!</NavLink>
-                        </div>}
-                        <Button
-                            disabled={!formValid}
-                            variant={"outline-success"}
-                            onClick={click}
-                        >
-                            Зарегистрироваться
-                        </Button>
-                    </Row>
-                </Form>
-            </Card>}
-        </Container>);
+            {isLogin ?
+                <div
+                    className={"login-card"}
+                >
+                    <h1 className={"header-text"}>Авторизация</h1>
+                    <form className={"login-form"}>
+                        <div className={"input-wrapper"}>
+                            <FiSmile size={25}/>
+                            <input
+                                className={"form-input"}
+                                placeholder={"Введите логин"}
+                                value={username}
+                                onChange={e => setUsername(e.target.value)}
+                            />
+                        </div>
+                        <div className={"input-wrapper"}>
+                            <FiLock size={25}/>
+                            <input
+                                className={"form-input"}
+                                placeholder={"Введите пароль"}
+                                value={password}
+                                onChange={e => setPassword(e.target.value)}
+                                type={"password"}
+                            />
+                        </div>
+                        <Row className={"d-flex justify-content-between mt-3 pl-3 pr-3"}>
+                            {isLogin ? <div>
+                                Нет аккаунта? <NavLink to={REGISTRATION_ROUTE}>Зарегистрируйся!</NavLink>
+                            </div> : <div>
+                                Есть аккаунт? <NavLink to={LOGIN_ROUTE}>Войдите!</NavLink>
+                            </div>}
+                            <Button
+                                variant={"outline-success"}
+                                onClick={click}
+                            >
+                                Войти
+                            </Button>
+                        </Row>
+                    </form>
+                </div> : <Card
+                    style={{width: 600}} className={"p-5 mt-5"}
+                >
+                    <h2 className={"m-auto"}>Регистрация</h2>
+                    <Form className={"d-flex flex-column"}>
+                        {(usernameDirty && usernameError) && <div style={{color: "red"}}>{usernameError}</div>}
+                        <Form.Control
+                            onBlur={e => blurHandler(e)}
+                            name={'username'}
+                            required
+                            className={"mt-3"}
+                            placeholder={"Введите логин"}
+                            value={username}
+                            onChange={e => usernameHandler(e)}
+                        />
+                        {(passwordDirty && passwordError) && <div style={{color: "red"}}>{passwordError}</div>}
+                        <Form.Control
+                            onBlur={e => blurHandler(e)}
+                            name={'password'}
+                            required
+                            className={"mt-3"}
+                            placeholder={"Введите пароль"}
+                            value={password}
+                            onChange={e => passwordHandler(e)}
+                            type={"password"}
+                        />
+                        {(addressDirty && addressError) && <div style={{color: "red"}}>{addressError}</div>}
+                        <Form.Control
+                            onBlur={e => blurHandler(e)}
+                            name={'address'}
+                            required
+                            className={"mt-3"}
+                            placeholder={"Введите адрес"}
+                            value={address}
+                            onChange={e => addressHandler(e)}
+                        />
+                        {(phoneDirty && phoneError) && <div style={{color: "red"}}>{phoneError}</div>}
+                        <Form.Control
+                            onBlur={e => blurHandler(e)}
+                            name={'phone'}
+                            className={"mt-3"}
+                            type="tel"
+                            placeholder="+375***********"
+                            required
+                            value={phone}
+                            onChange={e => phoneHandler(e)}
+                        />
+                        <Row className={"d-flex justify-content-between mt-3 pl-3 pr-3"}>
+                            {isLogin ? <div>
+                                Нет аккаунта? <NavLink to={REGISTRATION_ROUTE}>Зарегистрируйся!</NavLink>
+                            </div> : <div>
+                                Есть аккаунт? <NavLink to={LOGIN_ROUTE}>Войдите!</NavLink>
+                            </div>}
+                            <Button
+                                disabled={!formValid}
+                                variant={"outline-success"}
+                                onClick={click}
+                            >
+                                Зарегистрироваться
+                            </Button>
+                        </Row>
+                    </Form>
+                </Card>}
+        </div>);
 });
 
 export default Auth;

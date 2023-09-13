@@ -1,0 +1,49 @@
+.auth-section {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    min-height: calc(100vh - 150px);
+}
+
+.login-card {
+    border-radius: 15px;
+    margin: auto;
+    height: 30vh;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.auth-image {
+    background-image: url("https://s3-alpha-sig.figma.com/img/20db/267d/038884fc742b595828bbabcaa361c958?Expires=1695600000&Signature=nhyDstVu9~QwRD-rjOccgQDeboyQkOduV6yXRY282xjZ0LSzAfEOveIZap42toyMSBAM9BgYeEcxsh0bwGHmkLLVY4qhGH~xATH6re7bNY8ma~jcRks1fQlpGP4c5j1x3I8uQImvUieNe0zBJXAyJ10fxoNBQ1AZn0xibCTYaVDw4KGa7mFks6kezPtAupEXcDKFQXfnZewXPpwpHjUWggczpnKIuSQQsImB-RgRkfV-a1UUpkYXNfhxDHIfI5FlmHLKHdl5ZiP~k-M9kvIBfIxrjtAg5bWUdHSVtVMwpNOvpacNJtn9Wl~8AZy2PeOxs8j06mcewzm1KcYF2n3gnA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4");
+}
+
+.header-text {
+    color: #2E2E2E;
+}
+
+.login-form {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.input-wrapper {
+    width: 25vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: left;
+    gap: 1rem;
+    border-bottom: 1px solid #2E2E2E;
+}
+
+.form-input {
+    width: 80%;
+    outline: none;
+    border: transparent;
+}

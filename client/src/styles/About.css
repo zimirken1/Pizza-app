@@ -1,6 +1,6 @@
 .offer-section {
     z-index: 1;
-    position: relative;
+    position: sticky;
     display: block;
     flex-direction: column;
     width: 100vw;
